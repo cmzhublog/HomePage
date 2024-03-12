@@ -141,7 +141,16 @@ window.visibilityChangeEvent = hiddenProperty.replace(
 )
 window.addEventListener(visibilityChangeEvent, loadIntro)
 window.addEventListener('DOMContentLoaded', loadIntro)
+window.addEventListener('DOMContentLoaded', addEnter)
 
+
+function addEnter() { 
+	document.addEventListener('keydown', function(event) {
+	if (event.key === 'Enter') {
+			loadAll()
+		}
+	});
+}
 const enterEl = $('.enter')
 enterEl.addEventListener('click', loadAll)
 enterEl.addEventListener('touchenter', loadAll)
@@ -174,8 +183,5 @@ if (isPhone) {
 		{ passive: true }
 	)
 }
-document.addEventListener('keydown', function(event) {
-	if (event.keyCode === 13) {
-	  loadAll()
-	}
-  });
+
+

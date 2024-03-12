@@ -18,6 +18,7 @@ window.isPhone =
 	/Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(
 		navigator.userAgent
 	)
+	
 
 function getMoveDirection(startx, starty, endx, endy) {
 	if (!isPhone) {
@@ -173,3 +174,8 @@ if (isPhone) {
 		{ passive: true }
 	)
 }
+document.addEventListener('keydown', function(event) {
+	if (event.keyCode === 13) {
+	  loadAll()
+	}
+  });
